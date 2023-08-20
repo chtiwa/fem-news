@@ -20,8 +20,10 @@ const App = () => {
         setIsSidebarOpen={setIsSidebarOpen}
         links={links}
       />
-      <Left />
-      <Right />
+      <div className="flex flex-col lg:flex-row gap-y-8 mx-8">
+        <Left />
+        <Right />
+      </div>
       <Bottom />
     </div>
   )

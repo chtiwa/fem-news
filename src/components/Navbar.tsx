@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({
   links
 }) => {
   return (
-    <div className="flex items-center justify-between p-4 md:px-8 md:py-4">
+    <div className="flex items-center justify-between my-8 p-4 md:px-8 md:py-4">
       <img src="/images/logo.svg" alt="" />
       {isSidebarOpen ? (
         <img
