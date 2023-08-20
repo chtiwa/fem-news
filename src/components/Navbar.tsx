@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 interface NavbarProps {
   isSidebarOpen: boolean
   setIsSidebarOpen: (isSidebarOpen: boolean) => void
@@ -11,7 +12,17 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <div className="flex items-center justify-between my-8 p-4 md:px-8 md:py-4">
-      <img src="/images/logo.svg" alt="" />
+      <motion.img
+        src="/images/logo.svg"
+        alt=""
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 1,
+          delay: 0.5
+        }}
+        viewport={{ once: true }}
+      />
       {isSidebarOpen ? (
         <img
           src="/images/icon-menu-close.svg"
@@ -29,12 +40,19 @@ const Navbar: React.FC<NavbarProps> = ({
       )}
       <ul className="hidden md:flex md:items-center md:gap-x-4">
         {links.map((link, i) => (
-          <li
-            className="px-4 py-2 text-md text-slate-500 hover:cursor-pointer hover:text-red-400"
+          <motion.li
+            className="px-4 py-2 text-md text-slate-500 hover:cursor-pointer hover:text-red-400 hover:drop-shadow-sm"
             key={i}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.5 + 0.2 * i
+            }}
+            viewport={{ once: true }}
           >
             {link}
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>

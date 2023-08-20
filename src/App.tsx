@@ -9,7 +9,7 @@ const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const links = ["Home", "New", "Popular", "Trending", "Categories"]
   return (
-    <div className="flex flex-col w-[100%] ">
+    <div className="flex flex-col w-[100%] overflow-hidden">
       <Navbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}

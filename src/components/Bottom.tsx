@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 const Bottom = () => {
   const info = [
     {
@@ -23,7 +25,17 @@ const Bottom = () => {
   return (
     <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-3 w-[100%] md:px-8 px-2 py-8">
       {info.map((item, i) => (
-        <div className="flex gap-x-4 px-4 sm:px-16 lg:px-2" key={i}>
+        <motion.div
+          className="flex gap-x-4 px-4 sm:px-16 lg:px-2"
+          key={i}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 1.5,
+            delay: 1 + i * 0.5
+          }}
+          viewport={{ once: true }}
+        >
           <img src={item.img} alt="" className="object-cover h-36 w-24 " />
           <div className="flex flex-col gap-y-2 lg:gap-y-4">
             <p className="text-2xl md:text-4xl font-bold text-slate-400">
@@ -36,7 +48,7 @@ const Bottom = () => {
               {item.description}
             </p>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   )

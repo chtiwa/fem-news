@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 const Right = () => {
   const info = [
     {
@@ -16,19 +18,38 @@ const Right = () => {
     }
   ]
   return (
-    <div className="flex flex-col bg-sky-950 p-4 mx-4 w-[100%] sm:min-w-[400px]">
+    <motion.div
+      className="flex flex-col bg-slate-900 p-4 lg:mx-4 w-[100%] sm:min-w-[400px]"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{
+        duration: 1.5,
+        delay: 0.5
+      }}
+      viewport={{ once: true }}
+    >
       <h1 className="text-4xl font-bold text-red-400 mb-8">New</h1>
       <div className="flex flex-col gap-y-16">
         {info.map((item, i) => (
-          <div className="flex flex-col gap-y-4" key={i}>
+          <motion.div
+            className="flex flex-col gap-y-4"
+            key={i}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 1.5,
+              delay: 2 + 0.5 * i
+            }}
+            viewport={{ once: true }}
+          >
             <h3 className="text-xl font-bold text-white hover:text-red-400 cursor-pointer">
               {item.title}
             </h3>
             <p className="text-md text-slate-400">{item.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
